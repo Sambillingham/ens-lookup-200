@@ -1,4 +1,6 @@
 import Head from 'next/head'
+
+import EnsFeed from '@/components/EnsFeed'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 
@@ -19,6 +21,7 @@ export default function Home() {
             <code className={styles.code}>_ens/Lookup/200/</code>
           </p>
         </div>
+        <EnsFeed/>
       </main>
     </>
   )
