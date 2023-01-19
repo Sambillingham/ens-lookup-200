@@ -1,9 +1,16 @@
+.ensFeed {
+    display: flex;
+    flex-direction: column;
+    padding-left: 5%;
+}
+
 .feedItem {
-    background: var(--font-main);
+    background: var(--blue2000);
     border: solid 1px #fff;
     color: #fff;
     margin: 1rem;
     padding: 1rem;
     list-style: none;
-    min-width: 800px;
+    font-size: 0.5rem;
+    width: 100%;
 }

@@ -1,0 +1,29 @@
+.search {
+    display: flex;
+    flex-direction: column;
+    padding-right: 5%;
+}
+.searchCard {
+    padding: 0 2rem;
+    align-self: center;
+    border: solid 3px var(--blue2000);
+    font-size: 0.6rem;
+    background-color: var(--lilac);
+}
+
+.searchQuery {
+    display: flex;
+}
+.searchQuery__input {
+    width: 100%;
+    background-color: var(--lilac);
+}
+.searchQuery__button {
+    margin-left: 0.5rem;
+}
+.searchData {
+    border: solid 3px var(--blue2000);
+    border-color: var(--blue2000);
+    padding: 1rem;
+    margin-bottom: 1rem;
+}

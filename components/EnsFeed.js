@@ -28,8 +28,8 @@ function GetENS() {
 
     let { loading, error, data, startPolling } = useQuery(GET_REG, { 
     variables: {
-        limit: 10,
-        skip: page * 10,
+        limit: 4,
+        skip: page * 4,
     }
     });
     startPolling(5000)
@@ -50,10 +50,9 @@ function GetENS() {
     </div> )
 
     return (
-    <>
-    <div>
+    <div className={styles.ensFeed}>
         <h2>Live Data Feed</h2>
-        
+        <div>
         {
             data.registrations.map(({ domain }) => (
             <ul key={domain.name} className={styles.feedItem}>
@@ -65,14 +64,13 @@ function GetENS() {
             </ul>
             ))
         }
-
+        </div>
+        <div>
+            page: {page}
+            <button onClick={() => setPage(prev => prev - 1)}>Prev</button>
+            <button onClick={() => setPage(prev => prev + 1)}>Next</button>
+        </div>
     </div>
-    <div>
-        page: {page}
-        <button onClick={() => setPage(prev => prev - 1)}>Prev</button>
-        <button onClick={() => setPage(prev => prev + 1)}>Next</button>
-    </div>
-    </>
     )
 }
 

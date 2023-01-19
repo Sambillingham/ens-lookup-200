@@ -1,8 +1,10 @@
 .main {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  max-width: 70%;
+  margin: 0 auto;
   min-height: 100vh;
 }
