@@ -4,6 +4,11 @@
     padding-left: 5%;
 }
 
+@media (max-width: 950px) {
+    .ensFeed {
+        padding: 2rem 5%;
+    }
+}
 .ensFeedList {
     min-width: 35%;
 }

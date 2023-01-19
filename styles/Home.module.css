@@ -20,3 +20,17 @@
   -webkit-text-stroke: 0;
   color: #fff;;
 }
+
+@media (max-width: 950px) {
+  .title {
+      position: relative;
+      -webkit-text-stroke: 2px #fff;
+      left: auto;
+      right: auto;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      width: 100%;
+      text-align: center;
+  }
+}
+
