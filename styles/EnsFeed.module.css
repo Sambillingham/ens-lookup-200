@@ -1,0 +1,9 @@
+.feedItem {
+    background: var(--font-main);
+    border: solid 1px #fff;
+    color: #fff;
+    margin: 1rem;
+    padding: 1rem;
+    list-style: none;
+    min-width: 800px;
+}
