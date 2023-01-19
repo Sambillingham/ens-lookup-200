@@ -1,0 +1,12 @@
+.isLoading { 
+    animation: loading 1200ms infinite;
+}
+
+@keyframes loading {
+    from {
+        opacity: 0.2;
+    }
+    to {
+        opacity: 1;
+    }
+}

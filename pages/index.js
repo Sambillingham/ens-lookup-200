@@ -1,7 +1,5 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import TimeAgo from 'javascript-time-ago'
-import en from 'javascript-time-ago/locale/en.json'
 
 import Search from '@/components/Search'
 import EnsFeed from '@/components/EnsFeed'
@@ -9,7 +7,6 @@ import BackgroundStripes from '@/components/BackgroundStripes'
 
 import styles from '@/styles/Home.module.css'
 
-TimeAgo.addDefaultLocale(en)
 
 export default function Home() {
   return (
