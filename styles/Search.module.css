@@ -4,16 +4,17 @@
     padding-right: 5%;
 }
 .searchCard {
-    padding: 0 2rem;
+    padding: 1rem 2rem;
     align-self: center;
     border: solid 3px var(--blue2000);
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     background-color: var(--lilac);
     box-shadow: 8px 10px 0 rgb(0 0 0 / 100%);
 }
 
 .searchQuery {
     display: flex;
+    margin-bottom: 2rem;
 }
 .searchQuery__input {
     width: 100%;
@@ -27,4 +28,17 @@
     border-color: var(--blue2000);
     padding: 1rem;
     margin-bottom: 1rem;
+}
+
+.searchDataError {
+    border: solid 3px #AA3048;
+    color: #AA3048;
+}
+.searchDataWarning {
+    border: solid 3px #F0B740;
+    color: #F0B740;
+}
+
+.searchResult li {
+    margin-bottom: 0.5rem;
 }

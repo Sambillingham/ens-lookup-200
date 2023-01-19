@@ -37,10 +37,9 @@ const GetENS = () => {
 
     if (error) return <p>Error : {error.message}</p>;
 
-    // loading = true
     if (loading) return (
     <div className={styles.ensFeed}>
-        <h2>// Live Data Feed</h2>
+        <h2>Live Data Feed</h2>
         <div className={styles.ensFeedList}>
         {
             [...Array(4)].map((x, i) => (
@@ -53,7 +52,6 @@ const GetENS = () => {
                 </ul>
             </div>
             ))
-
         }
         </div>
         <div>
@@ -64,9 +62,10 @@ const GetENS = () => {
     return (
     <div className={styles.ensFeed}>
 
-        <h2>// Live Data Feed</h2>
+        <h2>Data Stream</h2>
         <div className={styles.ensFeedList}>
-        {
+            
+        { 
             data.registrations.map(({ domain, registrant, registrationDate, expiryDate }) => (
             <div key={domain.name} className={styles.feedItem}>
                 <h4 className={styles.itemTitle}>&middot; <span><ReactTimeAgo date={registrationDate*1000} locale="en-US"/></span> &middot; <span>{domain.name}</span> &middot;</h4>

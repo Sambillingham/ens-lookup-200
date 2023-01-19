@@ -1,7 +1,8 @@
-import React, { useRef, useState, useEffect} from 'react';
-import { gql, useLazyQuery} from '@apollo/client';
-import styles from '@/styles/Search.module.css'
+import React, { useRef, useState, useEffect} from 'react'
+import { gql, useLazyQuery} from '@apollo/client'
+import EnsCard from '@/components/EnsCard'
 
+import styles from '@/styles/Search.module.css'
 
 const Search = () => {
     const searchField = useRef(null);
@@ -29,16 +30,21 @@ const Search = () => {
         }
     `;
 
-    const [domain, setDomain] = useState(null);
+    const [result, setResult] = useState(null);
     const [getAddr, { loading, data, error }] = useLazyQuery(GET_SINGLE, {
-        onCompleted: data => setDomain(data.registrations[0])
+        onCompleted: data => {
+            setResult(data.registrations[0])
+        }
     })
     
-    if (loading) return <p>Loading ...</p>;
-
+    const search = () => {
+        setResult(null)
+        getAddr({ variables: { labelName: (value).split('.eth')[0] }})
+    }
+    
     return (
         <div className={styles.search}>
-            <h2>// Search</h2>
+            <h2>Search</h2>
             <div className={styles.searchCard}>
                 <h3>ENS: Domain Name</h3>
                 <div className={styles.searchQuery}>
@@ -47,22 +53,20 @@ const Search = () => {
                         ref={searchField}
                         type="text"
                         value={value}
-                        className={styles.searchQuery__input} onChange={(e) => setValue(e.target.value) }
+                        className={styles.searchQuery__input} onChange={(e) => setValue( (e.target.value).toLocaleLowerCase()) }
                     />
-                    <button className={styles.searchQuery__button} onClick={() => getAddr({ variables: { labelName: (value).split('.eth')[0] }})} >Search</button>
+                    <button 
+                        className={styles.searchQuery__button}
+                        onClick={() => search()}
+                        disabled={value === ''}
+                    >
+                        Search
+                    </button>
                 </div>
-                
-                <h3>Data Card</h3>
-                <div className={styles.searchData}>
-                    { domain && (
-                    <ul>
-                        <li>Registrant: {domain.registrant?.id}</li>
-                        <li>Assigned Addr: {domain.domain.resolvedAddress?.id}</li>
-                        <li>Registration: {domain.registrationDate}</li>
-                        <li>Expiry: {domain.expiryDate}</li>
-                    </ul>)
-                    }
-                </div>
+                <EnsCard 
+                    query={{ loading, data, result, error }}
+                    searchField={value}
+                />
             </div>
         </div>
     )
