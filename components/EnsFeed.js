@@ -39,7 +39,7 @@ const GetENS = () => {
 
     if (loading) return (
     <div className={styles.ensFeed}>
-        <h2>Live Data Feed</h2>
+        <h2>Data Stream</h2>
         <div className={styles.ensFeedList}>
         {
             [...Array(4)].map((x, i) => (
