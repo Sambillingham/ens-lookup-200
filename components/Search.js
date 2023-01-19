@@ -38,6 +38,7 @@ const Search = () => {
 
     return (
         <div className={styles.search}>
+            <h2>// Search</h2>
             <div className={styles.searchCard}>
                 <h3>ENS: Domain Name</h3>
                 <div className={styles.searchQuery}>

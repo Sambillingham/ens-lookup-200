@@ -6,11 +6,46 @@
 
 .feedItem {
     background: var(--blue2000);
-    border: solid 1px #fff;
+    border: solid 2px #fff;
     color: #fff;
-    margin: 1rem;
+    margin-bottom: 1rem ;
     padding: 1rem;
     list-style: none;
-    font-size: 0.5rem;
+    font-size: 0.75rem;
     width: 100%;
+    box-shadow: 8px 10px 0 rgb(0 0 0 / 100%);
+}
+
+.itemTitle { 
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+    font-size: 0.825rem;
+}
+
+.pagecount {
+    float: right;
+    padding: 1rem;
+    border-radius: 0;
+    font-size: 0.675rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: var(--blue2000);
+    border: solid 2px #fff;
+    color: #fff;
+    box-shadow: 8px 10px 0 rgb(0 0 0 / 100%);
+}
+
+.paginationButton {
+    float: right;
+    border: solid 2px #fff;
+    box-shadow: 8px 10px 0 rgb(0 0 0 / 100%);
+    margin-left: 0.5rem;
+}
+
+
+.domainDetails li {
+    margin-bottom: 0.25rem;
+}
+.domainDetails li:last-of-type {
+    margin: 0;
 }

@@ -9,6 +9,7 @@
     border: solid 3px var(--blue2000);
     font-size: 0.6rem;
     background-color: var(--lilac);
+    box-shadow: 8px 10px 0 rgb(0 0 0 / 100%);
 }
 
 .searchQuery {

@@ -1,8 +1,15 @@
 import Head from 'next/head'
+import Image from 'next/image'
+import TimeAgo from 'javascript-time-ago'
+import en from 'javascript-time-ago/locale/en.json'
 
 import Search from '@/components/Search'
 import EnsFeed from '@/components/EnsFeed'
+import BackgroundStripes from '@/components/BackgroundStripes'
+
 import styles from '@/styles/Home.module.css'
+
+TimeAgo.addDefaultLocale(en)
 
 export default function Home() {
   return (
@@ -14,8 +21,18 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
+        <h1 className={styles.title}>
+        <Image
+                src="/logo.svg"
+                alt="logo Logo"
+                width={30}
+                height={30}
+                priority
+              />
+          <span>ENS</span> Lookup 200.</h1>
         <Search/>
         <EnsFeed/>
+        <BackgroundStripes/>
       </main>
     </>
   )

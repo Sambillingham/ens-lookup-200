@@ -5,6 +5,8 @@ import Skeleton from 'react-loading-skeleton'
 import styles from '@/styles/EnsFeed.module.css'
 import 'react-loading-skeleton/dist/skeleton.css'
 
+import ReactTimeAgo from 'react-time-ago'
+
 const GET_REG = gql`
 query GetDomains($limit: Int!, $skip: Int!) {
   registrations(first: $limit, orderBy: registrationDate, skip: $skip,  orderDirection: desc) {
@@ -24,7 +26,7 @@ query GetDomains($limit: Int!, $skip: Int!) {
 `;
 
 function GetENS() {
-    const [page, setPage] = useState(0);
+    const [page, setPage] = useState(1);
 
     let { loading, error, data, startPolling } = useQuery(GET_REG, { 
     variables: {
@@ -51,24 +53,25 @@ function GetENS() {
 
     return (
     <div className={styles.ensFeed}>
-        <h2>Live Data Feed</h2>
+        <h2>// Live Data Feed</h2>
         <div>
         {
-            data.registrations.map(({ domain }) => (
-            <ul key={domain.name} className={styles.feedItem}>
-                <li>Name: {domain.name}</li>
-                <li>Registrant: {data.registrations[0].registrant?.id} </li>
-                <li>Assigned Addr: {data.registrations[0].domain.resolvedAddress?.id}</li>
-                <li>Registration: {data.registrations[0].registrationDate}</li>
-                <li>Expiry: {data.registrations[0].expiryDate}</li>
-            </ul>
+            data.registrations.map(({ domain, registrant, registrationDate, expiryDate }) => (
+            <div key={domain.name} className={styles.feedItem}>
+                <h4 className={styles.itemTitle}>&middot; <span><ReactTimeAgo date={registrationDate*1000} locale="en-US"/></span> &middot; <span>{domain.name}</span> &middot;</h4>
+                <ul className={styles.domainDetails}>
+                    <li>Registrant: {registrant?.id} </li>
+                    <li>Assigned Addr: {domain.resolvedAddress?.id}</li>
+                    <li>Expiry Date: {new Date(expiryDate*1000).toUTCString()}</li>
+                </ul>
+            </div>
             ))
         }
         </div>
         <div>
-            page: {page}
-            <button onClick={() => setPage(prev => prev - 1)}>Prev</button>
-            <button onClick={() => setPage(prev => prev + 1)}>Next</button>
+            <button className={styles.paginationButton} onClick={() => setPage(prev => prev + 1)}>Prev ►</button>
+            { page > 1 && ( <button className={styles.paginationButton} onClick={() => setPage(prev => prev - 1)}>◄ Next</button>) } 
+            { page > 1 && (<span className={styles.pagecount} >{page}</span>) } 
         </div>
     </div>
     )

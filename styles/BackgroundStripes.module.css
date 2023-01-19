@@ -1,0 +1,38 @@
+.StripesWrap {
+    position: absolute;
+    top: 0;
+    left: -80%;
+    z-index: -1;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.Stripes {
+    transform: rotate(-45deg);
+}
+
+
+.Stripe {
+    height: 5vh;
+    width: 200vw;
+    margin: 0.25rem;
+}
+
+.Stripe:nth-of-type(1n) {
+    background-color: #AA3048;
+}
+
+.Stripe:nth-of-type(2n) {
+    background-color: #D34055;
+}
+
+.Stripe:nth-of-type(3n) {
+    background-color: #E67B44;
+}
+
+.Stripe:nth-of-type(4n) {
+    background-color: #F0B740;
+}
+.Stripe:nth-of-type(5n) {
+    background-color: #284BFF;
+}
