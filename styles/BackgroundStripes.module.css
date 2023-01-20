@@ -5,6 +5,7 @@
     z-index: -1;
     height: 100vh;
     overflow: hidden;
+    max-width: 180%;
 }
 
 .Stripes {
